@@ -1,0 +1,75 @@
+1. GROUP BY
+
+Description: The GROUP BY statement groups rows that have the same values in specified columns into summary rows, like "total sales by country" or "average age by department."
+
+Syntax:
+    SELECT column1, aggregate_function(column2)
+    FROM table
+    GROUP BY column1;
+
+Example: Assuming we have a Sales table:
+
+Sales:
+
+id | product  | amount
+---|----------|-------
+1  | Apple    | 100
+2  | Banana   | 150
+3  | Apple    | 200
+4  | Orange   | 250
+
+Query:
+    SELECT product, SUM(amount) as total_sales
+    FROM Sales
+    GROUP BY product;
+
+Result:
+    product | total_sales
+    --------|-------------
+    Apple   | 300
+    Banana  | 150
+    Orange  | 250
+
+2. Aggregate Functions
+    COUNT(): Returns the number of rows that match a specified condition.
+    SUM(): Returns the total sum of a numeric column.
+    AVG(): Returns the average value of a numeric column.
+    MAX(): Returns the maximum value in a set.
+    MIN(): Returns the minimum value in a set.
+
+SELECT COUNT(*) as total_products,
+       SUM(amount) as total_amount,
+       AVG(amount) as average_amount,
+       MAX(amount) as max_amount,
+       MIN(amount) as min_amount
+FROM Sales;
+
+Result:
+
+total_products | total_amount | average_amount | max_amount | min_amount
+----------------|--------------|----------------|------------|------------
+4               | 600          | 150            | 250        | 100
+
+3. HAVING
+
+Description: The HAVING clause is used to filter groups created by the GROUP BY clause based on specified conditions. It is similar to the WHERE clause but is used for aggregated data.
+
+Syntax:
+    SELECT column1, aggregate_function(column2)
+    FROM table
+    GROUP BY column1
+    HAVING condition;
+
+Example: Continuing with the Sales table:
+
+SELECT product, SUM(amount) as total_sales
+FROM Sales
+GROUP BY product
+HAVING total_sales > 200;
+
+Result:
+
+product | total_sales
+--------|-------------
+Apple   | 300
+Orange  | 250

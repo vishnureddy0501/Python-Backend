@@ -1,0 +1,76 @@
+python strings are immutable. you can't perform insert, delete, replace operations directly on strings.
+
+1. Concatenation (+ operator)
+    str = "abc"
+    str1 = "def"
+    str2 = str + str1
+    print(str2)  # Output: "abcdef"
+
+2. Length (len())
+    print(len(str2))  # Output: 6
+
+3. Slicing
+
+    print(str2[0:5])  # Output: "abcde"
+    print(str2[::-1])  # Output: "fedcba" (Reverses the string)
+
+4. Replace
+
+    str3 = str2.replace("abc", "xyz")
+    print(str3)  # Output: "xyzdef"
+
+5. Insert
+    Strings in Python are immutable, so you cannot insert into a string directly, but you can simulate it by slicing:
+    # Inserting "123" at index 3
+    str4 = str2[:3] + "123" + str2[3:]
+    print(str4)  # Output: "abc123def"
+
+6. Delete
+    Again, strings are immutable, but you can simulate deletion by slicing:
+
+    # Deleting "abc" from str2
+    str5 = str2.replace("abc", "")
+    print(str5)  # Output: "def"
+
+    # Deleting by slicing (removing characters from index 1 to 3)
+    str6 = str2[:1] + str2[3:]
+    print(str6)  # Output: "adef"
+
+7. Uppercase and Lowercase
+
+    print(str2.upper())  # Output: "ABCDEF"
+    print(str2.lower())  # Output: "abcdef"
+
+8. Find Substring
+
+    Find the index of the first occurrence of a substring:
+
+    index = str2.find("def")
+    print(index)  # Output: 3
+
+9. Startswith and Endswith
+    print(str2.startswith("abc"))  # Output: True
+    print(str2.endswith("xyz"))    # Output: False
+
+10. Split and Join
+
+    split() breaks a string into a list based on a delimiter:
+        str7 = "a,b,c,d"
+        parts = str7.split(",")
+        print(parts)  # Output: ['a', 'b', 'c', 'd']
+
+    join() joins a list of strings into a single string:
+        str8 = "-".join(parts)
+        print(str8)  # Output: "a-b-c-d"
+
+11. Strip (trim is called strip here)
+
+    Remove whitespace from the beginning and end of a string:
+        str9 = "   abc   "
+        print(str9.strip())  # Output: "abc"
+
+12. Count
+
+    Count the occurrences of a substring:
+        count = str2.count("a")
+        print(count)  # Output: 1

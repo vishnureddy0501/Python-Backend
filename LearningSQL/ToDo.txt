@@ -1,0 +1,23 @@
+1. Basic SQL Queries
+    SELECT statements: Retrieving specific columns or all columns using SELECT *.
+    Filtering data: Using WHERE, AND, OR, BETWEEN, LIKE, etc.
+    Sorting results: Using ORDER BY.
+    Limiting results: Using LIMIT or OFFSET.
+    Aliases: Renaming tables or columns using AS.
+
+2. Joins
+    INNER JOIN: Combining rows where there's a match between two tables.
+    LEFT JOIN (or LEFT OUTER JOIN): Retrieving all records from the left table and matching ones from the right table.
+    RIGHT JOIN: Similar to LEFT JOIN but in reverse.
+    FULL JOIN: Retrieving all records when there is a match in either table.
+    Self-joins: Joining a table to itself.
+3. Aggregations and Grouping
+    GROUP BY: Grouping rows that have the same values in specified columns.
+    Aggregate functions: COUNT(), SUM(), AVG(), MAX(), MIN().
+    HAVING: Filtering groups after applying GROUP BY.
+4. Subqueries
+5. Set Operations
+    UNION: Combining results of two or more queries and removing duplicates.
+    UNION ALL: Similar to UNION, but retains duplicates.
+    INTERSECT: Returning only the common rows between two queries.
+    EXCEPT (or MINUS): Returning rows from one query that are not in another.

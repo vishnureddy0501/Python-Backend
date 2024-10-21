@@ -1,0 +1,53 @@
+select * from Table_name;
+select name, id from Table_name;
+
+select queries:
+---------------
+SELECT * 
+FROM CITY 
+WHERE POPULATION > 100000 
+AND CountryCode = 'USA' AND ID % 2 = 0;
+
+eg: select distinct ones
+------------------------
+SELECT DISTINCT CITY
+FROM STATION
+WHERE ID%2 = 0
+
+find the 2th highest salary:
+----------------------------
+limit means how many rows we need in our output.
+offset means how many rows we need to skip.
+offset 2 means skip 2 rows. limit 1 means take only 1 row in output.
+
+select DISTINCT SALARY from Employees ORDER BY SALARY DESC LIMIT 1 OFFSET 2;
+
+find nth highest salary:
+------------------------
+select distinct salary from employees order by salary desc limit 1 offset n-1;
+
+sol2:
+----
+select e1.salary from employees e1 where n-1 = (select count(DISTINCT e2.salary) from employee e2 where e2.salary > e1.salary)
+
+sql queries to find duplicate empid in the table:
+------------------------------------------------
+output for the both solutions are bit different. but they are valid.
+
+select *, count(empid) from employees group by empid HAVING count(empid) > 1;
+
+(or)
+
+SELECT * 
+FROM employees 
+WHERE empid IN (
+    SELECT empid 
+    FROM employees 
+    GROUP BY empid 
+    HAVING COUNT(empid) > 1
+);
+
+write a query to display first record and the last record:
+----------------------------------------------------------
+select * from employees where empid = (select MIN(empid) from employees where empid);
+select * from employees where empid = (select MAX(empid) from employees where empid)

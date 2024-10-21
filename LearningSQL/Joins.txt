@@ -1,0 +1,117 @@
+Note all these joins can be performed on multiple columns.
+
+
+1. INNER JOIN
+Description: Retrieves records that have matching values in both tables.
+    SELECT columns
+    FROM table1
+    INNER JOIN table2
+    ON table1.column = table2.column;
+
+Example:
+    SELECT orders.order_id, customers.customer_name
+    FROM orders
+    INNER JOIN customers
+    ON orders.customer_id = customers.customer_id;
+Result: Only rows that have matching customer IDs in both orders and customers tables.
+
+Inner Join on multiple columns:
+-------------------------------
+SELECT employees.employee_name, salaries.salary
+FROM employees
+INNER JOIN salaries
+ON employees.employee_id = salaries.employee_id
+AND employees.department_id = salaries.department_id;
+
+2. LEFT JOIN (LEFT OUTER JOIN)
+Description: Retrieves all records from the left table, and the matched records from the right table. If there’s no match, the result is NULL on the right side.
+Syntax:
+    SELECT columns
+    FROM table1
+    LEFT JOIN table2
+    ON table1.column = table2.column;
+
+Example:
+    SELECT customers.customer_name, orders.order_id
+    FROM customers
+    LEFT JOIN orders
+    ON customers.customer_id = orders.customer_id;
+
+    Result: All customers are displayed, even those without any orders (in that case, order_id will be NULL).
+
+3. RIGHT JOIN (RIGHT OUTER JOIN)
+
+Description: Retrieves all records from the right table, and the matched records from the left table. If there’s no match, the result is NULL on the left side.
+Syntax:
+    SELECT columns
+    FROM table1
+    RIGHT JOIN table2
+    ON table1.column = table2.column;
+
+Example:
+    SELECT customers.customer_name, orders.order_id
+    FROM customers
+    RIGHT JOIN orders
+    ON customers.customer_id = orders.customer_id;
+
+    Result: All orders are displayed, even if the customer for that order is not found (in that case, customer_name will be NULL).
+
+4. FULL JOIN (FULL OUTER JOIN)
+Description: Retrieves all records when there is a match in either left or right table. If there’s no match, NULL values are returned for non-matching rows from either table.
+    Note: MySQL doesn't directly support FULL JOIN, but you can achieve it by using UNION of a LEFT JOIN and a RIGHT JOIN.
+Syntax:
+    SELECT columns
+    FROM table1
+    LEFT JOIN table2
+    ON table1.column = table2.column
+    UNION
+    SELECT columns
+    FROM table1
+    RIGHT JOIN table2
+    ON table1.column = table2.column;
+
+Example:
+    SELECT customers.customer_name, orders.order_id
+    FROM customers
+    LEFT JOIN orders
+    ON customers.customer_id = orders.customer_id
+    UNION
+    SELECT customers.customer_name, orders.order_id
+    FROM customers
+    RIGHT JOIN orders
+    ON customers.customer_id = orders.customer_id;
+
+5. CROSS JOIN
+Description: Produces the Cartesian product of the two tables. Every row from the first table is combined with every row from the second table.
+Syntax:
+    SELECT columns
+    FROM table1
+    CROSS JOIN table2;
+Example:
+    SELECT products.product_name, categories.category_name
+    FROM products
+    CROSS JOIN categories;
+
+    Result: Every possible combination of products and categories is returned.
+
+6. SELF JOIN
+
+Description: A self join is a regular join, but the table is joined with itself.
+Syntax:
+    SELECT columns
+    FROM table1 t1, table1 t2
+    WHERE condition;
+Example:
+    SELECT a.employee_name AS Employee, b.employee_name AS Manager
+    FROM employees a
+    INNER JOIN employees b
+    ON a.manager_id = b.employee_id;
+
+    Result: Matches employees with their managers, both coming from the same table.
+
+Visual Representation of Joins
+    INNER JOIN: Only intersection of tables.
+    LEFT JOIN: All records from the left table and matching records from the right table.
+    RIGHT JOIN: All records from the right table and matching records from the left table.
+    FULL JOIN: All records from both tables, with NULL for non-matching records.
+    CROSS JOIN: Every combination of rows from both tables.

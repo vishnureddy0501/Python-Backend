@@ -1,0 +1,62 @@
+1. UNION
+Description: The UNION operator combines the result sets of two or more SELECT statements. It removes duplicate rows from the result.
+Syntax:
+    SELECT column1, column2, ...
+    FROM table1
+    UNION
+    SELECT column1, column2, ...
+    FROM table2;
+Example: Assume we have two tables, Table_A and Table_B:
+
+Table_A:
+
+id | name
+---|-------
+1  | Alice
+2  | Bob
+3  | Charlie
+
+Table_B:
+
+id | name
+---|-------
+4  | Bob
+5  | David
+
+Query:
+    SELECT name FROM Table_A
+    UNION
+    SELECT name FROM Table_B;
+
+Result:
+    name
+    -------
+    Alice
+    Bob
+    Charlie
+    David
+
+2. UNION ALL
+
+Description: The UNION ALL operator combines the result sets of two or more SELECT statements but retains all duplicate rows.
+Syntax:
+    SELECT column1, column2, ...
+    FROM table1
+    UNION ALL
+    SELECT column1, column2, ...
+    FROM table2;
+
+3. INTERSECT
+
+Description: The INTERSECT operator returns only the rows that are common to both queries, effectively finding the intersection of the two result sets.
+Syntax:
+    SELECT column1, column2, ...
+    FROM table1
+    INTERSECT
+    SELECT column1, column2, ...
+    FROM table2;
+
+Additional Notes
+----------------
+    All queries in a UNION, UNION ALL, or INTERSECT must have the same number of columns and corresponding data types in the result sets.
+    The column names in the result set are taken from the first SELECT statement.

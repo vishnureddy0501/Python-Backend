@@ -1,0 +1,7 @@
+ When Explicit Type Conversion Is Required:
+ ------------------------------------------
+    Concatenating a string with an integer (or performing an operation between incompatible types):
+    print("Age: " + str(25))  # You need to convert 25 to a string explicitly
+    print(3 + int("2"))       # You need to convert "2" to an integer explicitly
+Python doesn't automatically convert between types because this can lead to ambiguity or unintended behavior.
+

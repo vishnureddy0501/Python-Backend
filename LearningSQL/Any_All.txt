@@ -1,0 +1,38 @@
+Find employees whose salary is greater than any salary in the department with ID 5:
+
+Any Usage:
+---------
+SELECT employee_name
+FROM employees
+WHERE salary > ANY (SELECT salary FROM employees WHERE department_id = 5);
+
+All Usage:
+----------
+SELECT employee_name
+FROM employees
+WHERE salary > ALL (SELECT salary FROM employees WHERE department_id = 5);
+
+Copy all rows from a table to another table:
+-------------------------------------------
+create table newTable as select * from employees;
+
+copy only the schema from one table to another:
+----------------------------------------------
+create table newTable as select * from employees where 1 = 2;
+
+condition is always false. hence it copies only the schema.
+
+
+retrive the list of employees who are working in the same department:
+---------------------------------------------------------------------
+SELECT e1.name AS Employee1, e2.name AS Employee2, e1.department
+FROM employees e1, employees e2
+WHERE e1.department = e2.department and e1.id <> e2.id; 
+
+retrive last 3 records from employees table:
+--------------------------------------------
+select * from employees order by empid desc limit 3 offset 0;
+
+employee last name ends with a and contains 5 characters:
+---------------------------------------------------------
+select * from employees where empLastname like '____a';

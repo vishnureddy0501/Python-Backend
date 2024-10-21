@@ -1,0 +1,48 @@
+Creating a Set:
+
+    # Using the set() function
+    another_set = set([1, 2, 3, 4])
+
+    empty set:
+
+        empty_set = set()
+            (or)
+        empty_set = set([])
+
+Adding and Removing Elements
+    my_set.add(5)  # {1, 2, 3, 4, 5}
+
+Remove an element:
+    my_set.discard(6)   # Removes 6 if present; does nothing if 6 is not in the set
+
+Clear the set: Use clear() to remove all elements.
+    my_set.clear()  # Set becomes empty: {}
+
+Set Operations
+    union_set = set1.union(set2)  # {1, 2, 3, 4, 5}
+    intersection_set = set1.intersection(set2)  # {3}
+    difference_set = set1.difference(set2)  # {1, 2} Returns elements in the first set that are not in the second set.
+    symmetric_diff_set = set1.symmetric_difference(set2)  # {1, 2, 4, 5} Returns elements that are in either of the sets, but not in both.
+
+Iterating Over a Set
+    You can iterate over a set like a list, but remember that sets are unordered.
+
+    for element in my_set:
+        print(element)
+
+Length of a Set:
+    print(len(my_set))  # Returns the number of elements in the set
+
+1. Convert a Set to a List:
+
+    # Example of Set to List
+    my_set = {1, 2, 3, 4, 5}
+    my_list = list(my_set)
+    print(my_list)  # Output: [1, 2, 3, 4, 5]
+
+2. Convert a List to a Set:
+
+    # Example of List to Set
+    my_list = [1, 2, 2, 3, 4, 5]
+    my_set = set(my_list)
+    print(my_set)  # Output: {1, 2, 3, 4, 5}

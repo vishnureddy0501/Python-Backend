@@ -1,0 +1,59 @@
+Class nothing but blue print.(blue print of house before construction).
+Object is a real world entity. Object is an instance of class. (house is an Object)
+
+order of inheritance:
+---------------------
+
+class A:
+    def get(self):
+        print("A's get method")
+
+class B(A):
+    def get(self):
+        print("B's get method")
+
+class C(A):
+    def get(self):
+        print("C's get method")
+
+class D(B, C):
+    pass
+
+d = D()
+d.get()
+
+Output:
+-------
+B's get method
+
+Explanation:
+    In the class D(B, C), B and C are inherited in that order.
+    When d.get() is called, Python will look at B first, because B is inherited before C. Since B has a get() method, it gets called.
+    If B did not have a get() method, Python would then look at C.
+
+
+eg2: order of inheritance:
+--------------------------
+class A:
+    def get(self):
+        print("A's get method")
+
+class B(A):
+    def get(self):
+        print("B's get method")
+
+class C(A):
+    def get(self):
+        print("C's get method")
+
+class D(B, C):
+    def get(self):
+        super(D, self).get()
+
+d = D()
+d.get()
+print(D.mro())
+
+method resolution order:
+-----------------------
+if you call some method, then the method in which class gets executed is said by the mro.

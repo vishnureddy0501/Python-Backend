@@ -1,0 +1,7 @@
+def learningMRO():
+    class A: # (A, Object)
+        pass
+    class B(A): # (B, A, Object)
+        pass
+    class C(A, B): # (C, A, B, Object), (A's MRO), (B's MRO) ... it goes
+        pass
