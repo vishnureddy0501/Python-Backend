@@ -56,18 +56,6 @@
     To extract elements at odd positions (indices 1, 3, 5, etc.) from a list in Python, you can use slicing with a step of 2. The syntax would be:
     odd_position_elements = numbers[1::2]  # Starts at index 1 (second element) and steps by 2
 
-4. Extend a List
-
-    Add multiple elements to the list at once:
-
-    numbers.extend([20, 30, 40])  # Appends all elements from another iterable
-
-5. Concatenating Lists
-
-    You can concatenate two lists using the + operator:
-
-    numbers_combined = numbers + numbers2
-
 6. List Multiplication
     repeated_list = numbers * 2  # Repeat the list twice
 
@@ -82,20 +70,8 @@
     for index, value in enumerate(numbers):
         print(index, value")
 
-10. You can copy a list using the list() constructor (similar to copy()):
-
-    numbers_copy = list(numbers)
-
 12. Finding the Length of a List
     length = len(numbers)  # Get the number of elements in the list
-
-14. Inserting at a Specific Position
-
-    numbers.insert(1, 99)  # Inserts 99 at index 1
-
-15. You can delete an element by its index using del.
-
-    del numbers[0]  # Removes the element at index 0
 
 17. Convert other data structures to a list:
     tuple_example = (1, 2, 3)

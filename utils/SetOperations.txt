@@ -34,15 +34,6 @@ Length of a Set:
     print(len(my_set))  # Returns the number of elements in the set
 
 1. Convert a Set to a List:
-
-    # Example of Set to List
-    my_set = {1, 2, 3, 4, 5}
     my_list = list(my_set)
-    print(my_list)  # Output: [1, 2, 3, 4, 5]
-
 2. Convert a List to a Set:
-
-    # Example of List to Set
-    my_list = [1, 2, 2, 3, 4, 5]
     my_set = set(my_list)
-    print(my_set)  # Output: {1, 2, 3, 4, 5}

@@ -1,0 +1,64 @@
+if you don't handle exceptions for errors then program terminates unexpectedly.
+
+General Structure of Exception Handling:
+---------------------------------------
+try:
+    # Code that may raise an exception
+except SomeException as e:
+    # Handle the specific exception
+else:
+    # Code that executes if no exceptions occur
+finally:
+    # Code that always executes (optional)
+
+Example of Generalized Exception Handling:
+
+try:
+    # Code that may raise an exception
+except Exception as e:
+    print(f"An error occurred: {e}")  # Handle any other general exceptions
+else:
+    print("No errors occurred!")  # This will execute if no exception is raised
+finally:
+    print("This will always execute.")  # Cleanup or final code
+
+
+Catching All Exceptions:
+------------------------
+
+try:
+    x = 10 / 0  # This raises a ZeroDivisionError
+except Exception as e:
+    print(f"An error occurred: {e}")  # Handle all exceptions
+
+raise exceptions:
+-----------------
+
+def check_value(value):
+    if value < 0:
+        raise Exception("Negative value not allowed!")
+    return value
+
+try:
+    check_value(-10)
+except Exception as e:
+    print(e)  # Output: Negative value not allowed!
+
+
+Raising Custom Exceptions:
+-------------------------
+
+class MyCustomError(Exception):
+    pass
+
+def check_value(value):
+    if value < 0:
+        raise MyCustomError("Negative value is not allowed!")
+    return value
+
+try:
+    check_value(-10)
+except MyCustomError as e:
+    print(e)  # Output: Negative value is not allowed!
+except Exception as e:
+    print(e)  # we can have multiple except blocks like this.

@@ -1,3 +1,11 @@
+# while loop and it's else block
+while condition:
+    # loop body
+else:
+    # this block runs if the while loop exits without a break
+
+for loop:
+--------
 # 0 is inclusive and 5 is exclusive
 for i in range(0, 5, 2):
     print(i)

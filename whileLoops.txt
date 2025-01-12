@@ -1,5 +1,0 @@
-# while loop and it's else block
-while condition:
-    # loop body
-else:
-    # this block runs if the while loop exits without a break

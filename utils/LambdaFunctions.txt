@@ -1,7 +1,4 @@
-Lambdas in Python are anonymous functions, meaning they are functions without a name. They are used when you need a simple function for a short period, especially when the function is simple and does not require a full function definition using def. The syntax for a lambda function is different from that of a regular Python function.
-Lambda Function Syntax:
-
-python
+Lambda Function Syntax: single line functions
 
 lambda arguments: expression
 
@@ -9,8 +6,6 @@ lambda arguments: expression
     Expression: A single expression that is evaluated and returned.
 
 Example of a Lambda Function:
-
-python
 
 # Regular function using def
 def add(x, y):
@@ -24,17 +19,12 @@ result = add_lambda(5, 3)
 print(result)  # Output: 8
 
 Use Cases for Lambda Functions:
-
     Short, simple functions: Lambdas are used when you need a quick function for a one-time use, such as in sorting, filtering, or mapping operations.
-
-    Anonymous functions: Lambda functions are often passed as arguments to higher-order functions (functions that take other functions as input).
 
 Common Use Cases of Lambda Functions:
 1. Using Lambda in map():
 
 map() applies a function to all elements in an iterable (like a list).
-
-python
 
 numbers = [1, 2, 3, 4]
 squared_numbers = list(map(lambda x: x ** 2, numbers))
@@ -44,17 +34,11 @@ print(squared_numbers)  # Output: [1, 4, 9, 16]
 
 filter() filters elements from an iterable based on a condition.
 
-python
-
 numbers = [1, 2, 3, 4, 5, 6]
 even_numbers = list(filter(lambda x: x % 2 == 0, numbers))
 print(even_numbers)  # Output: [2, 4, 6]
 
 3. Using Lambda in sorted() with key:
-
-You can use a lambda function as a key in sorting functions to customize the sorting behavior.
-
-python
 
 students = [
     {'name': 'Alice', 'grade': 85},
